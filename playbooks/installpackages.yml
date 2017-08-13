@@ -1,0 +1,11 @@
+---
+- hosts: loadbalancer
+  become: true
+  tasks:
+    - name: install packages git, httpd
+      yum: name={{item}} state=present
+      with_items:
+        - httpd
+        - git
+    - name: start httpd server
+      service: name=httpd state=started enabled=true    

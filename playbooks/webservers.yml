@@ -1,0 +1,10 @@
+---
+ - hosts: webservers
+   become: True
+   tasks:
+       - name: install apache server
+         yum: name=httpd state=present update_cache=true
+       - name: start the apache serice
+         service: name=httpd state=started enabled=true
+       - name: copy application code to webservers
+         copy: src=../html/index.html dest=/var/www/html/

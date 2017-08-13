@@ -1,0 +1,6 @@
+---
+- hosts: db
+  become: yes
+  tasks:
+    - name: install mysql db
+      yum: name=mysql state=present

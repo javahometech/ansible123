@@ -1,0 +1,5 @@
+---
+- hosts: all
+  tasks:
+    - name: find storage info on the hosts
+      command: df -h
